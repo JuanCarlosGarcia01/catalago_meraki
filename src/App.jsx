@@ -55,14 +55,17 @@ function App() {
 Quiero consultar por este producto:
 *${product.name}*
 
-Precio: $${product.price.toLocaleString("es-AR")}
+Precio: ${formatPrice(product.price)}
 Categoría: ${product.category}
 
 📷 Ver imagen:
-${imageUrl}`;
+${imageUrl}
 
-  const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank");
+¿Está disponible?`;
+
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+  window.open(url, "_blank", "noopener,noreferrer");
 };
    
   const openProduct = (product) => {
